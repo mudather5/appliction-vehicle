@@ -1,11 +1,12 @@
 <?php
 
-abstract class Vehicle{
+abstract class Vehicles{
 
     protected $colors,
               $wheels,
               $speed,
-              $models;
+              $models,
+              $type;
 
     public function __construct(array $array){
 
@@ -16,7 +17,7 @@ abstract class Vehicle{
 
     public function hydrate(array $array)
     {
-        foreach ($donnees as $key => $value)
+        foreach ($array as $key => $value)
         {
             $method = 'set'.ucfirst($key);
                 
@@ -30,22 +31,27 @@ abstract class Vehicle{
 
     public function getColors(){
 
-        return $this->$color;
+        return $this->colors;
     }
 
     public function getWheels(){
 
-        return $this->$wheels;
+        return $this->wheels;
     }
 
     public function getSpeed(){
 
-        return $this->$speed;
+        return $this->speed;
     }
 
     public function getModels(){
 
-        return $this->$models;
+        return $this->models;
+    }
+
+    public function getType(){
+
+        return $this->type;
     }
 
     public function setColors($colors){
@@ -66,6 +72,11 @@ abstract class Vehicle{
     public function setModels($models){
 
         $this->models = $models;
+    }
+
+    public function setType($type){
+
+        $this->type = $type;
     }
 }
 

@@ -1,12 +1,15 @@
 <?php
+
 class Database{
+
     const   HOST = "localhost",
-            DBNAM = "atelier0",
+            DBNAME = "vehicles",
             LOGIN="root",
             PWD = "root";
 
     static  public function DB(){
-        $db = new PDO('mysql:host='. self::HOST. ';dbname='. self::DBNAM. ';charset=utf8');
+
+        $db = new PDO("mysql:host=" . self::HOST .";dbname=" . self::DBNAME , self::LOGIN, self::PWD);
 
         return $db;
     }

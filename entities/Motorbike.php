@@ -1,16 +1,21 @@
 <?php
 
-class Motorbike{
+class Motorbike extends Vehicles{
 
     protected $hands;
 
 
-    public function __construct(array $array){
 
+    public function getHands(){
+
+        return $this->hands;
 
     }
 
+    public function setHands($hands){
 
+        $this->hand = $hands;
+    }
 
 }
 
