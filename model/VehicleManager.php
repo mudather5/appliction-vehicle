@@ -38,28 +38,14 @@ class VehicleManager{
         return $arrayOfVehicles;
     }
 
-    public function getVehicle($info)
+    public function getVehicle($id)
     {
-        // if (is_string($info))
-        // {
-        //     $query = $this->getDB()->prepare('SELECT * FROM vehicles WHERE models = :models, colors = :colors, speed = :speed, wheels = :wheels, glass = :glass, hands = :hands, doors = :doors, type = :type');
-        //     $query->bindValue('models', $vehicle->getModels(), PDO::PARAM_STR);
-        //     $query->bindValue('colors', $vehicle->getColors(), PDO::PARAM_STR);
-        //     $query->bindValue('speed', $vehicle->getSpeed(), PDO::PARAM_INT);
-        //     $query->bindValue('wheels', $vehicle->getWheels(), PDO::PARAM_INT);
-        //     $query->bindValue('hands', $vehicle->getHands(), PDO::PARAM_INT);
-        //     $query->bindValue('doors', $vehicle->getDoors(), PDO::PARAM_INT);
-        //     $query->bindValue('glass', $vehicle->getGlass(), PDO::PARAM_INT);
-        //     $query->bindValue('type', $vehicle->getType(), PDO::PARAM_INT);
     
-    
-    
-        // }
 
-        if (is_int($info))
+        if (is_int($id))
         {
             $query = $this->getDB()->prepare('SELECT * FROM vehicles WHERE id = :id');
-            $query->bindValue('id', $info, PDO::PARAM_INT);
+            $query->bindValue('id', $id, PDO::PARAM_INT);
             $query->execute();
         }
 
@@ -104,8 +90,35 @@ class VehicleManager{
         }
         
         $query->execute();
+
+        $id = $this->getDb()->lastInsertId();
+        $vehicle->hydrate([
+            "id" => $id
+        ]);
   
     }
+
+
+    public function delete($vehicle)
+    {
+        $query = $this->getDb()->prepare('DELETE FROM vehicles WHERE id = :id');
+        $query->bindValue('id', $vehicle, PDO::PARAM_INT);
+        $query->execute();
+    }
+
+    // public function update($vehicle)
+    // {
+    //     $query = $this->getDb()->prepare('UPDATE vehicles SET type = :type, colors = :colors, speed = :speed, wheels = :wheels, glass = :glass, hands = :hands, doors = :doors  WHERE id = :id');
+    //     $query->bindValue('type', $vehicle->getType(), PDO::PARAM_STR);
+    //     $query->bindValue('colors', $vehicle->getColors(), PDO::PARAM_STR);
+    //     $query->bindValue('speed', $vehicle->getSpeed(), PDO::PARAM_INT);
+    //     $query->bindValue('wheels', $vehicle->getWheels(), PDO::PARAM_INT);
+    //     $query->bindValue('glass', $vehicle->getGlass(), PDO::PARAM_INT);
+    //     $query->bindValue('handss', $vehicle->getHands(), PDO::PARAM_INT);
+    //     $query->bindValue('doors', $vehicle->getDoors(), PDO::PARAM_INT);
+    //     $query->bindValue('id', $vehicle->getId(), PDO::PARAM_INT);
+    //     $query->execute();
+    // }
 
      
 }

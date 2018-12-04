@@ -1,10 +1,35 @@
 <?php
   include("template/header.php");
 
+  echo '<div class="container">';
+
+
+            foreach($vehicles as $vehicle){
+
+                if($vehicle->getType() == 'motorbike'){
+
+                    echo "Type: ".$vehicle->getType()."<br>". "Colors: ".$vehicle->getColors()."<br>"."Wheels: ". $vehicle->getWheels()."<br>"."Speed: ".$vehicle->getSpeed()."<br>" ;
+                    echo "Models: ".$vehicle->getModels()."<br>"."hands: ".$vehicle->getHands()."<br>";  
+                    echo "hands: ".$vehicle->getHands();
+                    echo '<a href="index.php?remove="' .$vehicle->getId().'" class="btn btn-primary" name="submit" value="delete vehicle">Delete</a>'."<br>";
+
+
+                }
+
+                else{
+                    
+                    echo "Type: ".$vehicle->getType()."<br>". "Colors: ".$vehicle->getColors()."<br>"."Wheels: ". $vehicle->getWheels()."<br>"."Speed: ".$vehicle->getSpeed()."<br>" ;
+                    echo "Models: ".$vehicle->getModels()."<br>"." Glass: ".$vehicle->getGlass()."<br>"."Doors: ".$vehicle->getDoors()."<br>"; ?>
+                    <a href="index.php?remove=<?php echo $vehicle->getId(); ?>" class="btn btn-primary" name="submit" value="delete vehicle">Delete</a>
+
+
+                <?php }
+            }
+
+    echo '</div>';
 
 
 
-  //include("template/footer.php");
   ?>
 
 

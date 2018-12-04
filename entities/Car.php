@@ -5,11 +5,23 @@
             protected $glass;
             protected $doors;
 
+            /**
+             * getGlass
+             *
+             * @return void
+             */
             public function getGlass(){
 
                 return $this->glass;
             }
 
+            /**
+             * setGlass
+             *
+             * @param  mixed $glass
+             *
+             * @return void
+             */
             public function setGlass($glass){
 
                 $this->glass = $glass;

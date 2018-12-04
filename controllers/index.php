@@ -71,9 +71,16 @@ if (!empty($_POST['submit'])){
 }
 
 
-$vehicles = $vehicleManager->getVehicles();
 }
 
+if(isset($_GET['remove'])) {
+
+    $id = (int) $_GET['remove'];
+
+    $vehicles = $vehicleManager->delete($id);
+}
+
+$vehicles = $vehicleManager->getVehicles();
 
 include './views/indexVue.php';
 

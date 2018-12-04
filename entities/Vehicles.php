@@ -2,7 +2,8 @@
 
 abstract class Vehicles{
 
-    protected $colors,
+    protected $id,
+              $colors,
               $wheels,
               $speed,
               $models,
@@ -26,6 +27,11 @@ abstract class Vehicles{
                 $this->$method($value);
             }
         }
+    }
+
+    public function getId(){
+
+        return $this->id;
     }
 
 
@@ -52,6 +58,11 @@ abstract class Vehicles{
     public function getType(){
 
         return $this->type;
+    }
+
+    public function setId($id){
+
+        $this->id = $id;
     }
 
     public function setColors($colors){
