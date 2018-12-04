@@ -1,6 +1,6 @@
 <?php
 
-class Database{
+class Database{//connection to data base
 
     const   HOST = "localhost",
             DBNAME = "vehicles",

@@ -8,19 +8,32 @@
 
                 if($vehicle->getType() == 'motorbike'){
 
-                    echo "Type: ".$vehicle->getType()."<br>". "Colors: ".$vehicle->getColors()."<br>"."Wheels: ". $vehicle->getWheels()."<br>"."Speed: ".$vehicle->getSpeed()."<br>" ;
-                    echo "Models: ".$vehicle->getModels()."<br>"."hands: ".$vehicle->getHands()."<br>";  
-                    echo "hands: ".$vehicle->getHands();
-                    echo '<a href="index.php?remove="' .$vehicle->getId().'" class="btn btn-primary" name="submit" value="delete vehicle">Delete</a>'."<br>";
+                     echo  "Type: ".$vehicle->getType()."<br>";
+                    echo "Colors: ".$vehicle->getColors()."<br>"."Wheels: ". $vehicle->getWheels()."<br>"."Speed: ".$vehicle->getSpeed()."<br>" ;
+                    echo "Models: ".$vehicle->getModels()."<br>"." Glass: ".$vehicle->getHands()."<br>"; ?>
+                    <!-- the button for deleting a vehicle -->
+                    <a href="index.php?remove=<?php echo $vehicle->getId(); ?>" class="btn btn-primary" name="submit" value="delete vehicle">Delete</a>
+                    <!-- the button in order to update a vehicle -->
+                    <a href="index.php?update=<?php echo $vehicle->getId(); ?>" class="btn btn-primary" name="submit" value="ubdate vehicle">Update</a>
 
 
-                }
+                    
+
+
+               <?php }
 
                 else{
                     
-                    echo "Type: ".$vehicle->getType()."<br>". "Colors: ".$vehicle->getColors()."<br>"."Wheels: ". $vehicle->getWheels()."<br>"."Speed: ".$vehicle->getSpeed()."<br>" ;
+                    echo "Type: ".$vehicle->getType()."<br>";
+                    echo "Colors: ".$vehicle->getColors()."<br>"."Wheels: ". $vehicle->getWheels()."<br>"."Speed: ".$vehicle->getSpeed()."<br>" ;
                     echo "Models: ".$vehicle->getModels()."<br>"." Glass: ".$vehicle->getGlass()."<br>"."Doors: ".$vehicle->getDoors()."<br>"; ?>
+
+                     <!-- the button for deleting a vehicle -->
                     <a href="index.php?remove=<?php echo $vehicle->getId(); ?>" class="btn btn-primary" name="submit" value="delete vehicle">Delete</a>
+                     
+                     <!-- the button in order to update a vehicle -->
+                    <a href="index.php?upbdate=<?php echo $vehicle->getId(); ?>" class="btn btn-primary" name="submit" value="update vehicle">Update</a>
+
 
 
                 <?php }
@@ -32,7 +45,7 @@
 
   ?>
 
-
+<!-- the form for adding new vehicles -->
 
 <div class="container">
 
@@ -67,6 +80,7 @@
         </div>
     </div>
  </div>
+ <!-- the ending of the form -->
 
  <?php
 

@@ -45,7 +45,6 @@ if (!empty($_POST['submit'])){
 
     ]);
 
-    var_dump($truck);
     $truckManager = new VehicleManager(Database::DB());
     $truckManager->addVehicle($truck);
 
@@ -81,6 +80,16 @@ if(isset($_GET['remove'])) {
 }
 
 $vehicles = $vehicleManager->getVehicles();
+
+if(isset($_GET['update'])) {
+
+    $id = (int) $_GET['update'];
+
+    $vehicles = $vehicleManager->update($id);
+}
+
+$vehicles = $vehicleManager->getVehicles();
+
 
 include './views/indexVue.php';
 

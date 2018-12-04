@@ -5,10 +5,11 @@
             protected $glass;
             protected $doors;
 
+            
             /**
              * getGlass
              *
-             * @return void
+             * Get the value of glass
              */
             public function getGlass(){
 
@@ -20,27 +21,33 @@
              *
              * @param  mixed $glass
              *
-             * @return void
+             * Set the value of glass
              */
             public function setGlass($glass){
 
                 $this->glass = $glass;
             }
 
+            
 
             /**
+             * getDoors
+             *
              * Get the value of doors
-             */ 
+             */
             public function getDoors()
             {
                         return $this->doors;
             }
 
+            
             /**
-             * Set the value of doors
+             * setDoors
              *
-             * @return  self
-             */ 
+             * @param  mixed $doors
+             *
+             * Set the value of doors
+             */
             public function setDoors($doors)
             {
                         $this->doors = $doors;
